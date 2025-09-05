@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iftikhar Ahmad — Portfolio</title>
+    <meta name="description" content="Iftikhar Ahmad — Developer, Designer, Creator. Full single-page portfolio built with Tailwind CSS." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Helper utilities and small custom styles */
+      .avatar-shadow { box-shadow: 0 12px 40px rgba(2,6,23,0.6); }
+      .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
+      .fade-in { animation: fadeIn .45s ease both; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      .progress-bg { background: linear-gradient(90deg,#111827,#0b1220); }
+      .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+      .card-hover:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
+      .carousel-scroll { scroll-behavior: smooth; }
+      .no-select { user-select: none; }
+      .backdrop-fade { background: rgba(0,0,0,0.6); }
+      @media (print) {.no-print{display:none!important}}
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-100 leading-relaxed">
+
+    <!-- NAVBAR -->
+    <header class="fixed w-full z-50 top-0 left-0 bg-gradient-to-b from-black/70 to-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 flex items-center justify-between">
+          <a href="#home" class="flex items-center gap-3">
+            <img src="ift.jpeg" alt="logo" class="w-10 h-10 rounded-full avatar-shadow object-cover" />
+            <div class="text-sm leading-tight">
+              <div class="font-bold text-white">Iftikhar Ahmad</div>
+              <div class="text-xs text-gray-400">Developer • Designer • Creator</div>
+            </div>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+            <a href="#about" class="hover:text-white">About</a>
+            <a href="#services" class="hover:text-white">Services</a>
+            <a href="#skills" class="hover:text-white">Skills</a>
+            <a href="#work" class="hover:text-white">Work</a>
+            <a href="#blog" class="hover:text-white">Blog</a>
+            <a href="#contact" class="hover:text-white">Contact</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <button id="themeToggle" class="text-sm bg-white/5 px-3 py-1 rounded">Dark</button>
+            <button id="menuBtn" class="lg:hidden text-sm bg-white/5 px-3 py-1 rounded">Menu</button>
+            <a href="#contact" class="hidden lg:inline bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1 rounded">Hire me</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div id="mobileNav" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/60" data-close></div>
+      <nav class="relative w-72 bg-gray-900 h-full p-6">
+        <div class="flex items-center justify-between mb-6">
+          <div class="font-bold">Menu</div>
+          <button data-close class="px-2 py-1">Close</button>
+        </div>
+        <ul class="space-y-3">
+          <li><a href="#about" class="block">About</a></li>
+          <li><a href="#services" class="block">Services</a></li>
+          <li><a href="#skills" class="block">Skills</a></li>
+          <li><a href="#work" class="block">Work</a></li>
+          <li><a href="#blog" class="block">Blog</a></li>
+          <li><a href="#contact" class="block">Contact</a></li>
+        </ul>
+        <div class="mt-6 text-sm text-gray-400">© <span id="yearSmall"></span> Iftikhar Ahmad</div>
+      </nav>
+    </div>
+
+    <!-- MAIN -->
+    <main id="home" class="pt-20">
+      <!-- HERO / INTRO -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6">
+            <p class="text-indigo-400 font-semibold">Hello, I'm</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Iftikhar Ahmad</h1>
+            <p class="text-gray-300 max-w-2xl">I build delightful web apps and thoughtful user interfaces. I focus on accessibility, performance, and delightful micro-interactions. I work with React, Next.js, Tailwind CSS, and modern serverless/back-end stacks.</p>
+            <div class="flex items-center gap-4">
+              <a href="#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-md shadow">Hire me</a>
+              <a href="#work" class="bg-white/5 px-5 py-3 rounded-md">See portfolio</a>
+              <a href="/resume.pdf" class="text-sm text-gray-300 underline">Download resume</a>
+            </div>
+
+            <div class="flex items-center gap-4 text-sm text-gray-400 mt-6">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor"><path d="M2 5a2 2 0 012-2h3l2 2h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/></svg>
+                <span>Open for freelance & full-time</span>
+              </div>
+              <div class="text-gray-600">•</div>
+              <div class="text-gray-400">Based in Pakistan</div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-3xl p-1 bg-gradient-to-br from-indigo-700 to-cyan-500 shadow-2xl">
+              <div class="bg-gray-900 rounded-3xl p-6 flex flex-col gap-4">
+                <img src="ift.jpeg" alt="Iftikhar" class="w-44 h-44 rounded-full object-cover mx-auto avatar-shadow" />
+                <div class="text-center">
+                  <h3 class="font-bold text-xl">Iftikhar Ahmad</h3>
+                  <p class="text-xs text-gray-400">Full-stack developer & UI/UX designer</p>
+                </div>
+                <div class="grid grid-cols-3 gap-3 text-center text-sm text-gray-300">
+                  <div>
+                    <div class="font-semibold text-white">8+</div>
+                    <div class="text-xs">Years</div>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-white">120+</div>
+                    <div class="text-xs">Projects</div>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-white">50k</div>
+                    <div class="text-xs">Lines</div>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-center gap-3">
+                  <a href="#contact" class="bg-indigo-600 px-4 py-2 rounded">Work with me</a>
+                  <a href="#work" class="bg-white/5 px-4 py-2 rounded">My projects</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-gradient-to-br from-pink-500 to-yellow-400 opacity-20 blur-3xl"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-3 gap-6 items-start">
+            <div class="md:col-span-2">
+              <h2 class="text-2xl font-semibold mb-4">About me</h2>
+              <p class="text-gray-300 mb-4">I'm a product-minded engineer who loves shipping polished interfaces and building reliable backends. I enjoy mentoring teams and contributing to open-source. I care about performance, accessibility, and maintainable code.</p>
+              <ul class="grid sm:grid-cols-2 gap-3 text-sm text-gray-400">
+                <li>• React & Next.js</li>
+                <li>• Tailwind CSS & Design Systems</li>
+                <li>• Node.js, Express, Serverless</li>
+                <li>• PostgreSQL & Prisma</li>
+                <li>• Testing (Jest, Playwright)</li>
+                <li>• CI/CD and DevOps basics</li>
+              </ul>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4 glass">
+              <h4 class="font-semibold mb-2">Contact</h4>
+              <p class="text-sm text-gray-400">Email: <a href="mailto:iftikhar@example.com" class="underline text-indigo-400">iftikhar@example.com</a></p>
+              <p class="text-sm text-gray-400">Phone: <a href="tel:+923001234567" class="underline text-indigo-400">+92 300 1234567</a></p>
+              <div class="mt-3 flex items-center gap-3">
+                <a href="#" class="text-gray-300">Twitter</a>
+                <a href="#" class="text-gray-300">LinkedIn</a>
+                <a href="#" class="text-gray-300">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Services</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 bg-gray-800 rounded-lg card-hover">
+              <h3 class="font-semibold">Product Design</h3>
+              <p class="text-sm text-gray-400 mt-2">Designing user flows, wireframes and high-fidelity interfaces that convert.</p>
+              <ul class="mt-3 text-sm text-gray-400 space-y-1">
+                <li>• UI/UX audits</li>
+                <li>• Design systems</li>
+                <li>• Prototyping</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-gray-800 rounded-lg card-hover">
+              <h3 class="font-semibold">Web Development</h3>
+              <p class="text-sm text-gray-400 mt-2">Building fast, accessible frontends and scalable server-side systems.</p>
+              <ul class="mt-3 text-sm text-gray-400 space-y-1">
+                <li>• Frontend (React, Next)</li>
+                <li>• APIs & serverless</li>
+                <li>• Integrations (Stripe, Auth)</li>
+              </ul>
+            </div>
+            <div class="p-6 bg-gray-800 rounded-lg card-hover">
+              <h3 class="font-semibold">Performance & SEO</h3>
+              <p class="text-sm text-gray-400 mt-2">Improve Core Web Vitals and organic traffic through technical optimizations.</p>
+              <ul class="mt-3 text-sm text-gray-400 space-y-1">
+                <li>• PWAs</li>
+                <li>• Image CDN</li>
+                <li>• Caching & SSR</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS + COUNTERS -->
+      <section id="skills" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <h2 class="text-2xl font-semibold mb-4">Skills & Proficiency</h2>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <div class="text-sm">React / Next.js</div>
+                    <div class="text-xs text-gray-400">90%</div>
+                  </div>
+                  <div class="w-full h-3 bg-gray-800 rounded overflow-hidden progress-bg">
+                    <div class="h-3 bg-indigo-500" style="width:90%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <div class="text-sm">Tailwind CSS / Design Systems</div>
+                    <div class="text-xs text-gray-400">95%</div>
+                  </div>
+                  <div class="w-full h-3 bg-gray-800 rounded overflow-hidden progress-bg">
+                    <div class="h-3 bg-cyan-400" style="width:95%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <div class="text-sm">Node.js / Backend</div>
+                    <div class="text-xs text-gray-400">85%</div>
+                  </div>
+                  <div class="w-full h-3 bg-gray-800 rounded overflow-hidden progress-bg">
+                    <div class="h-3 bg-yellow-400" style="width:85%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <div class="text-sm">Testing & Automation</div>
+                    <div class="text-xs text-gray-400">78%</div>
+                  </div>
+                  <div class="w-full h-3 bg-gray-800 rounded overflow-hidden progress-bg">
+                    <div class="h-3 bg-green-400" style="width:78%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-2xl font-semibold mb-4">Stats</h2>
+              <div class="grid grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-6 rounded text-center">
+                  <div class="text-3xl font-bold" data-count="8">0</div>
+                  <div class="text-sm text-gray-400">Years experience</div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded text-center">
+                  <div class="text-3xl font-bold" data-count="120">0</div>
+                  <div class="text-sm text-gray-400">Projects</div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded text-center">
+                  <div class="text-3xl font-bold" data-count="50000">0</div>
+                  <div class="text-sm text-gray-400">Lines of code</div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded text-center">
+                  <div class="text-3xl font-bold" data-count="30">0</div>
+                  <div class="text-sm text-gray-400">Happy clients</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION & CERTIFICATIONS -->
+      <section id="education" class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Education & Certifications</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-6 rounded">
+              <h3 class="font-semibold">B.Sc. Computer Science</h3>
+              <p class="text-sm text-gray-400">University of Example — 2012 - 2016</p>
+              <p class="text-sm mt-3">Focused on algorithms, data structures, databases and web development. Graduated with honors.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded">
+              <h3 class="font-semibold">Certifications</h3>
+              <ul class="text-sm text-gray-400 mt-3 space-y-2">
+                <li>• AWS Certified Developer — Associate</li>
+                <li>• Google UX Design Certificate</li>
+                <li>• Advanced React Patterns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AWARDS & ACHIEVEMENTS -->
+      <section id="awards" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Awards & Achievements</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-6 rounded text-center">
+              <div class="text-indigo-400 font-bold">Winner</div>
+              <div class="mt-2">Hackathon 2019 — Best UX</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded text-center">
+              <div class="text-indigo-400 font-bold">Top 10</div>
+              <div class="mt-2">Startup Pitch, 2020</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded text-center">
+              <div class="text-indigo-400 font-bold">Mentor</div>
+              <div class="mt-2">Open Source Mentorship Program</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO / PROJECTS (10+) -->
+      <section id="work" class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-semibold">Selected work</h2>
+            <div class="flex items-center gap-3">
+              <button id="projectsPrev" class="px-3 py-1 bg-white/5 rounded">◀</button>
+              <button id="projectsNext" class="px-3 py-1 bg-white/5 rounded">▶</button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto carousel-scroll flex gap-6 pb-4" id="projectsRow">
+            <!-- repeat project cards 10+ -->
+            <!-- Project 1 -->
+            <article class="w-80 bg-gray-800 rounded-lg overflow-hidden card-hover">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=proj1" alt="ShopWave" class="w-full h-44 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold">ShopWave — eCommerce</h3>
+                <p class="text-sm text-gray-400 mt-2">Headless eCommerce with Stripe, fast product pages and SSG.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <a href="#" class="text-indigo-400 text-sm">Live demo</a>
+                  <span class="text-xs text-gray-400">React • Next</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="w-80 bg-gray-800 rounded-lg overflow-hidden card-hover">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=proj2" alt="Tutorly" class="w-full h-44 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold">Tutorly — Learning</h3>
+                <p class="text-sm text-gray-400 mt-2">Live classrooms using WebRTC and serverless functions.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <a href="#" class="text-indigo-400 text-sm">Case study</a>
+                  <span class="text-xs text-gray-400">Node • Socket.io</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="w-80 bg-gray-800 rounded-lg overflow-hidden card-hover">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=proj3" alt="Design System" class="w-full h-44 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold">Design System</h3>
+                <p class="text-sm text-gray-400 mt-2">A component library used across multiple products.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <a href="#" class="text-indigo-400 text-sm">Docs</a>
+                  <span class="text-xs text-gray-400">Tailwind</span>
+                </div>
+              </div>
+            </article>
+
+         
+            <!-- Project 5 -->
+            <article class="w-80 bg-gray-800 rounded-lg overflow-hidden card-hover">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=proj5" alt="Mobile App" class="w-full h-44 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold">Mobile App</h3>
+                <p class="text-sm text-gray-400 mt-2">Cross-platform app with great offline experience.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <a href="#" class="text-indigo-400 text-sm">App store</a>
+                  <span class="text-xs text-gray-400">React Native</span>
+                </div>
+              </div>
+            </article>
+
+           
+            
+
+            <!-- Project 10 -->
+            <article class="w-80 bg-gray-800 rounded-lg overflow-hidden card-hover">
+              <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=proj10" alt="Performance" class="w-full h-44 object-cover" />
+              <div class="p-4">
+                <h3 class="font-semibold">Performance Optimization</h3>
+                <p class="text-sm text-gray-400 mt-2">Core Web Vitals improvements and Lighthouse wins.</p>
+                <div class="mt-3 flex items-center justify-between">
+                  <a href="#" class="text-indigo-400 text-sm">Before/After</a>
+                  <span class="text-xs text-gray-400">PWAs • CDN</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS (carousel/grid) -->
+      <section id="testimonials" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">What clients say</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-6 rounded">
+              <p class="text-sm text-gray-300">"Iftikhar delivered an exceptional redesign — we saw our metrics improve."</p>
+              <div class="mt-4 text-sm text-gray-400">— Product Lead, ShopWave</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded">
+              <p class="text-sm text-gray-300">"Great communicator and problem solver. Highly recommended."</p>
+              <div class="mt-4 text-sm text-gray-400">— Founder, Tutorly</div>
+            </div>
+            <div class="bg-gray-800 p-6 rounded">
+              <p class="text-sm text-gray-300">"Fast delivery and great attention to detail."</p>
+              <div class="mt-4 text-sm text-gray-400">— CTO, MetricsInc</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOG / ARTICLES (6+ posts) -->
+      <section id="blog" class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-semibold">Latest articles</h2>
+            <a href="#blog" class="text-sm text-gray-400">View all</a>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog1" class="w-full h-40 object-cover" alt="post1" />
+              <div class="p-4">
+                <h3 class="font-semibold">Designing for Scale</h3>
+                <p class="text-sm text-gray-400 mt-2">How I built a component library for multi-team collaboration.</p>
+                <div class="mt-3 text-xs text-gray-500">Aug 2025 • 8 min read</div>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog2" class="w-full h-40 object-cover" alt="post2" />
+              <div class="p-4">
+                <h3 class="font-semibold">Optimizing Next.js</h3>
+                <p class="text-sm text-gray-400 mt-2">Practical tips for faster builds and better caching strategies.</p>
+                <div class="mt-3 text-xs text-gray-500">Jul 2025 • 6 min read</div>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog3" class="w-full h-40 object-cover" alt="post3" />
+              <div class="p-4">
+                <h3 class="font-semibold">Accessible UIs</h3>
+                <p class="text-sm text-gray-400 mt-2">Accessibility patterns every front-end developer should know.</p>
+                <div class="mt-3 text-xs text-gray-500">Jun 2025 • 7 min read</div>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog4" class="w-full h-40 object-cover" alt="post4" />
+              <div class="p-4">
+                <h3 class="font-semibold">Design Tokens</h3>
+                <p class="text-sm text-gray-400 mt-2">How to structure design tokens for scale and theming.</p>
+                <div class="mt-3 text-xs text-gray-500">May 2025 • 5 min read</div>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog5" class="w-full h-40 object-cover" alt="post5" />
+              <div class="p-4">
+                <h3 class="font-semibold">Testing React Apps</h3>
+                <p class="text-sm text-gray-400 mt-2">A practical approach to unit and end-to-end testing.</p>
+                <div class="mt-3 text-xs text-gray-500">Apr 2025 • 9 min read</div>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 rounded overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=blog6" class="w-full h-40 object-cover" alt="post6" />
+              <div class="p-4">
+                <h3 class="font-semibold">Serverless Patterns</h3>
+                <p class="text-sm text-gray-400 mt-2">Designing resilient serverless functions and queues.</p>
+                <div class="mt-3 text-xs text-gray-500">Mar 2025 • 7 min read</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY / PHOTO GRID -->
+      <section id="gallery" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Gallery</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <!-- many images to fill grid -->
+            
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g2" class="w-full h-40 object-cover rounded" alt="g2" />
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g3" class="w-full h-40 object-cover rounded" alt="g3" />
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g4" class="w-full h-40 object-cover rounded" alt="g4" />
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g5" class="w-full h-40 object-cover rounded" alt="g5" />
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g6" class="w-full h-40 object-cover rounded" alt="g6" />
+           
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g9" class="w-full h-40 object-cover rounded" alt="g9" />
+            
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g11" class="w-full h-40 object-cover rounded" alt="g11" />
+            <img src="https://images.unsplash.com/photo-1506812574058-fc75fa93fead?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=g12" class="w-full h-40 object-cover rounded" alt="g12" />
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ ACCORDION -->
+      <section id="faq" class="py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Frequently asked questions</h2>
+          <div class="space-y-4">
+            <div class="bg-gray-800 rounded">
+              <button class="w-full text-left p-4 flex items-center justify-between faq-toggle">
+                <span>How do I hire you?</span>
+                <span class="text-gray-400">+</span>
+              </button>
+              <div class="faq-body p-4 text-sm text-gray-300 hidden">You can reach me via the contact form or email. I typically reply within 48 hours and provide a project brief and proposal.</div>
+            </div>
+            <div class="bg-gray-800 rounded">
+              <button class="w-full text-left p-4 flex items-center justify-between faq-toggle">
+                <span>Do you accept remote projects?</span>
+                <span class="text-gray-400">+</span>
+              </button>
+              <div class="faq-body p-4 text-sm text-gray-300 hidden">Yes — most of my work is remote. I use Zoom/Google Meet and collaborative tools.</div>
+            </div>
+            <div class="bg-gray-800 rounded">
+              <button class="w-full text-left p-4 flex items-center justify-between faq-toggle">
+                <span>What's your typical process?</span>
+                <span class="text-gray-400">+</span>
+              </button>
+              <div class="faq-body p-4 text-sm text-gray-300 hidden">Discovery → Design → Build → Iterate. I provide regular demos and clear milestones.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING PLANS -->
+      <section id="pricing" class="py-12 bg-gradient-to-b from-black/10 to-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-6">Pricing</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-6 rounded">
+              <h3 class="font-semibold">Starter</h3>
+              <div class="text-3xl font-bold mt-4">$1,500</div>
+              <p class="text-sm text-gray-400 mt-2">For small websites and landing pages.</p>
+              <ul class="mt-4 text-sm text-gray-400 space-y-2">
+                <li>• Design & build (2–3 pages)</li>
+                <li>• Basic SEO</li>
+                <li>• 1 week delivery</li>
+              </ul>
+              <a href="#contact" class="mt-4 inline-block bg-indigo-600 px-4 py-2 rounded">Hire</a>
+            </div>
+            <div class="bg-gray-800 p-6 rounded border-2 border-indigo-600">
+              <h3 class="font-semibold">Growth</h3>
+              <div class="text-3xl font-bold mt-4">$5,000</div>
+              <p class="text-sm text-gray-400 mt-2">For launching SaaS or marketplaces.</p>
+              <ul class="mt-4 text-sm text-gray-400 space-y-2">
+                <li>• Full product (MVP)</li>
+                <li>• Integrations (payments, auth)</li>
+                <li>• 4–6 weeks delivery</li>
+              </ul>
+              <a href="#contact" class="mt-4 inline-block bg-indigo-600 px-4 py-2 rounded">Hire</a>
+            </div>
+            <div class="bg-gray-800 p-6 rounded">
+              <h3 class="font-semibold">Enterprise</h3>
+              <div class="text-3xl font-bold mt-4">Custom</div>
+              <p class="text-sm text-gray-400 mt-2">Custom solutions for larger teams and scale.</p>
+              <ul class="mt-4 text-sm text-gray-400 space-y-2">
+                <li>• Dedicated team</li>
+                <li>• SLA & support</li>
+                <li>• Custom integrations</li>
+              </ul>
+              <a href="#contact" class="mt-4 inline-block bg-indigo-600 px-4 py-2 rounded">Contact</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl font-semibold mb-4">Get in touch</h2>
+          <p class="text-sm text-gray-400 mb-6">I’m available for freelance projects, consulting, and full-time roles. Send a message and I’ll respond within 48 hours.</p>
+
+          <form id="contactForm" class="grid grid-cols-1 gap-4 bg-gray-800 p-6 rounded">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <input name="name" required placeholder="Your name" class="px-4 py-3 bg-gray-900 rounded focus:outline-none" />
+              <input name="email" type="email" required placeholder="Email address" class="px-4 py-3 bg-gray-900 rounded focus:outline-none" />
+            </div>
+            <input name="subject" placeholder="Subject" class="px-4 py-3 bg-gray-900 rounded focus:outline-none" />
+            <textarea name="message" rows="6" required placeholder="Message" class="px-4 py-3 bg-gray-900 rounded focus:outline-none"></textarea>
+            <div class="flex items-center gap-3">
+              <button type="submit" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded">Send message</button>
+              <div id="formMsg" class="text-sm text-gray-400"></div>
+            </div>
+          </form>
+
+          <div class="mt-6 grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-4 rounded">
+              <h4 class="font-semibold">Location</h4>
+              <p class="text-sm text-gray-400 mt-2">Karachi, Pakistan</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded">
+              <h4 class="font-semibold">Availability</h4>
+              <p class="text-sm text-gray-400 mt-2">Open for freelance & full-time work</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BACK to TOP BUTTON -->
+      <button id="backToTop" class="fixed right-6 bottom-6 z-40 bg-indigo-600 p-3 rounded-full hidden">↑</button>
+
+      <!-- FOOTER -->
+      <footer class="py-12 border-t border-gray-800 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-3 gap-6 items-start">
+            <div>
+              <div class="font-bold text-white">Iftikhar Ahmad</div>
+              <div class="text-sm text-gray-400 mt-2">Developer, Designer & Creator. Building products people love.</div>
+              <div class="mt-4 text-sm text-gray-400">Subscribe to newsletter</div>
+              <form id="newsletterForm" class="mt-3 flex gap-2">
+                <input name="email" placeholder="Your email" class="px-3 py-2 bg-gray-900 rounded w-full" />
+                <button class="bg-indigo-600 px-4 py-2 rounded">Subscribe</button>
+              </form>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold">Explore</h4>
+                <ul class="text-sm text-gray-400 mt-3 space-y-2">
+                  <li><a href="#about" class="hover:text-white">About</a></li>
+                  <li><a href="#services" class="hover:text-white">Services</a></li>
+                  <li><a href="#work" class="hover:text-white">Work</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Legal</h4>
+                <ul class="text-sm text-gray-400 mt-3 space-y-2">
+                  <li><a href="#" class="hover:text-white">Privacy</a></li>
+                  <li><a href="#" class="hover:text-white">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold">Social</h4>
+              <div class="flex items-center gap-3 mt-3 text-gray-400">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 text-sm text-gray-500">© <span id="year"></span> Iftikhar Ahmad. All rights reserved.</div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- MINIMAL JS (~100 lines) -->
+    <script>
+      // Utilities
+      const $ = s => document.querySelector(s);
+      const $$ = s => Array.from(document.querySelectorAll(s));
+
+      // Theme toggle
+      const themeBtn = $('#themeToggle');
+      themeBtn.addEventListener('click', ()=>{
+        const root = document.documentElement;
+        if(root.classList.contains('light')){
+          root.classList.remove('light'); document.body.classList.remove('bg-white'); document.body.classList.add('bg-gray-900'); themeBtn.textContent = 'Dark';
+        } else {
+          root.classList.add('light'); document.body.classList.remove('bg-gray-900'); document.body.classList.add('bg-white'); themeBtn.textContent = 'Light';
+        }
+      });
+
+      // Mobile menu
+      const menuBtn = $('#menuBtn');
+      const mobileNav = $('#mobileNav');
+      menuBtn.addEventListener('click', ()=> mobileNav.classList.remove('hidden'));
+      $$('[data-close]').forEach(el => el.addEventListener('click', ()=> mobileNav.classList.add('hidden')));
+
+      // Smooth internal links + close mobile
+      $$('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length > 1 && document.querySelector(href)){
+            e.preventDefault(); document.querySelector(href).scrollIntoView({behavior:'smooth', block:'start'});
+            mobileNav.classList.add('hidden');
+          }
+        });
+      });
+
+      // FAQ accordion
+      $$('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', ()=>{
+          const body = btn.nextElementSibling; const plus = btn.querySelector('span:last-child');
+          if(body.classList.contains('hidden')){ body.classList.remove('hidden'); plus.textContent = '-'; }
+          else { body.classList.add('hidden'); plus.textContent = '+'; }
+        });
+      });
+
+      // Animated counters
+      function animateCounters(){
+        $$('.text-3xl[data-count], .text-3xl[data-count]').forEach(el => {
+          const target = parseInt(el.getAttribute('data-count'),10) || 0; let cur = 0; const step = Math.max(1, Math.floor(target/60));
+          const id = setInterval(()=>{ cur += step; if(cur >= target){ el.textContent = target; clearInterval(id);} else el.textContent = cur; }, 16);
+        });
+      }
+      // trigger when skills section in view
+      const skillsSection = $('#skills');
+      const io = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ animateCounters(); io.disconnect(); } });}, {threshold:0.2});
+      if(skillsSection) io.observe(skillsSection);
+
+      // Projects carousel controls
+      const projectsRow = $('#projectsRow');
+      $('#projectsNext').addEventListener('click', ()=> projectsRow.scrollBy({left: 360, behavior:'smooth'}));
+      $('#projectsPrev').addEventListener('click', ()=> projectsRow.scrollBy({left: -360, behavior:'smooth'}));
+
+      // Contact form (stub)
+      const form = $('#contactForm'); const formMsg = $('#formMsg');
+      form.addEventListener('submit', e=>{ e.preventDefault(); formMsg.textContent = 'Sending...'; setTimeout(()=>{ formMsg.textContent = 'Thanks — message sent!'; form.reset(); }, 900); });
+
+      // Newsletter (stub)
+      $('#newsletterForm').addEventListener('submit', e=>{ e.preventDefault(); alert('Subscribed — thank you!'); });
+
+      // Back to top
+      const backToTop = $('#backToTop');
+      window.addEventListener('scroll', ()=>{ if(window.scrollY > 400) backToTop.classList.remove('hidden'); else backToTop.classList.add('hidden'); });
+      backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+      // set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('yearSmall').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
